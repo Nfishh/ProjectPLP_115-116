@@ -1,0 +1,2 @@
+halo 1
+hitung_diskon 2
