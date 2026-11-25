@@ -1,0 +1,8 @@
+(query [0, 0] - [1, 0]
+  (and_expression [0, 0] - [0, 11]
+    (comparison [0, 0] - [0, 3]
+      (identifier [0, 0] - [0, 1])
+      (number [0, 2] - [0, 3]))
+    (comparison [0, 8] - [0, 11]
+      (identifier [0, 8] - [0, 9])
+      (number [0, 10] - [0, 11]))))

@@ -7,10 +7,15 @@
 export default grammar({
   name: 'filter',
   extras: $ => [/\s/],
+  word: $ => $.identifier,
   rules: {
-    query: $ => $.comparison,
-    comparison: $ => seq($.identifier, '=', $.string),
-    identifier: $ => /[a-zA-Z_][a-zA-Z0-9_.]*/,
+    query: $ => $._expr,
+    _expr: $ => choice($.comparison, $.and_expression),
+    and_expression: $ => prec.left(2, seq($._expr, 'and', $._expr)),
+    comparison: $ => seq($.identifier, choice('=', '!=', '>', '<', '>=', '<='), $._value),
+    _value: $ => choice($.string, $.number),
     string: $ => /"[^"]*"/,
+    number: $ => /\d+(\.\d+)?/,
+    identifier: $ => /[a-zA-Z_][a-zA-Z0-9_.]*/,
   }
 });
