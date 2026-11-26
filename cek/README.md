@@ -46,3 +46,15 @@ Buat beberapa file Python di dalam satu folder uji:
 - satu file dengan sintaks Python yang sengaja dirusak.
 
 Jalankan CLI pada folder tersebut, lalu cocokkan temuan dengan isi file secara manual.
+
+**## Hasil Pengujian**
+
+Pengujian dilakukan menggunakan folder `cek/uji` yang berisi tiga file Python dengan kondisi berbeda. Program berhasil mendeteksi komentar TODO, fungsi yang memiliki panjang lebih dari 30 baris, dan kesalahan sintaks.
+
+Pengujian juga dilakukan pada folder utama proyek menggunakan perintah:
+
+```bash
+python cek/cek.py .
+```
+
+Program berhasil memeriksa 15 file Python dan menampilkan temuan sesuai kondisi file yang diperiksa.
